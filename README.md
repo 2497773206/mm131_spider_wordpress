@@ -11,6 +11,7 @@ pip3 install requests
 ```
 # 关于使用
 需要打开脚本文件设置连接的mysql信息，在代码第10行
+还有要修改第25行的图床key，和图床url，只支持chevereto
 
 #运行
 ```bash
