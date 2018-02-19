@@ -58,7 +58,6 @@ def get_page_url_info(flag):
         url='http://www.mm131.com/xinggan/list_6_'+str(flag)+'.html'
     get=requests.get(url)
     infos=re.findall(r'<dd><a target="_blank" href="http://www.mm131.com/xinggan/([0-9]*).html"><img src=',get.text)
-    print(infos)
     return infos
 def get_page_img_info(a):
     getpage=requests.get('http://www.mm131.com/xinggan/'+str(a)+'.html')
@@ -140,8 +139,14 @@ def main():
                     post_article(info,img_tittle)
                 else:continue
         flag+=1
-if __name__='__main__':
+if __name__=='__main__':
     try:
-        main()
+        if os.path.exists('temp')==False:
+            os.makedirs('temp')
+            f=open('temp/log.txt','w+')
+            f.close()
+            main()
+        else:
+            main()
     except:
-        print('程序运行错误，请重新运行脚本')
+        print('主程序出错，请重新运行')
