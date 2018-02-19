@@ -127,6 +127,7 @@ def main():
                     img_tittle=img_info[0]
                     img_page=img_info[1]
                     try:
+                        print('下载图片完成')
                         get_img(info,img_page[0],img_tittle)
                     except:
                         print('下载图片出错')
@@ -139,6 +140,7 @@ def main():
                     post_article(info,img_tittle)
                 else:continue
         flag+=1
+        print('下一页')
 if __name__=='__main__':
     try:
         if os.path.exists('temp')==False:
